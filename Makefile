@@ -16,10 +16,10 @@ liblazyusf.a : $(OBJS)
 	$(AR) rcs $@ $^
 
 bench : test/bench.o liblazyusf.a
-	$(CC) -o $@ $^ ../psflib/libpsflib.a -lz
+	$(CC) -o $@ $^ ../psflib/libpsflib.a -lz -lm
 
 dumpresampled : test/dumpresampled.o liblazyusf.a
-	$(CC) -o $@ $^ ../psflib/libpsflib.a -lz
+	$(CC) -o $@ $^ ../psflib/libpsflib.a -lz -lm
 
 .c.o:
 	$(CC) $(CFLAGS) $(OPTS) -o $@ $*.c
