@@ -1168,7 +1168,7 @@ int init_memory(usf_state_t * state, uint32_t rdram_size)
         map_region(state, 0xb000+i, M64P_MEM_NOTHING, RW(nothing));
     }
 
-    state->fast_memory = state->enable_trimming_mode ? 0 : 1;
+    state->fast_memory = state->enable_trimming_mode ? CORE_PURE_INTERPRETER : CORE_INTERPRETER;
 
     if (state->g_rom && state->g_rom_size >= 0xfc0)
         init_cic_using_ipl3(state, &state->g_si.pif.cic, state->g_rom + 0x40);
