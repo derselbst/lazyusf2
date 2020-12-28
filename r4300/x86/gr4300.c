@@ -44,7 +44,7 @@ static void genupdate_count(usf_state_t * state, unsigned int addr)
    mov_reg32_m32(state, EDX, &state->count_per_op);
    mul_reg32(state, EDX);
    add_m32_reg32(state, (unsigned int*)(&state->g_cp0_regs[CP0_COUNT_REG]), EAX);
-   add_m32_reg32((unsigned int*)(&state->cycle_count), EAX);
+   add_m32_reg32(state, (unsigned int*)(&state->cycle_count), EAX);
 }
 
 static void gencheck_interupt(usf_state_t * state, unsigned int instr_structure)

@@ -180,7 +180,7 @@ static osal_inline void test_reg32_imm32(usf_state_t * state, int reg32, unsigne
 static osal_inline void test_reg32_reg32(usf_state_t * state, int reg1, int reg2)
 {
     put8(state, 0x85);
-    put8(state, ((reg2 << 3) | reg1 | 0xC0);
+    put8(state, ((reg2 << 3) | reg1 | 0xC0));
 }
 
 static osal_inline void test_m32_imm32(usf_state_t * state, unsigned int *m32, unsigned int imm32)
