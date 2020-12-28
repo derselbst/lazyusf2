@@ -51,7 +51,7 @@ static void gencheck_interupt(usf_state_t * state, unsigned int instr_structure)
 {
    free_register(state, EBX);
    mov_eax_memoffs32(state, &state->cycle_count);
-   cmp_reg32_reg32(state, EAX, EAX);
+   test_reg32_reg32(state, EAX, EAX);
    js_rj(state, 19);
    mov_m32_imm32(state, (unsigned int*)(&state->PC), instr_structure); // 10
    mov_reg32_imm32(state, EBX, (unsigned int)gen_interupt); // 5
@@ -63,7 +63,7 @@ static void gencheck_interupt_out(usf_state_t * state, unsigned int addr)
 {
    free_register(state, EBX);
    mov_eax_memoffs32(state, &state->cycle_count);
-   cmp_reg32_reg32(state, EAX, EAX);
+   test_reg32_reg32(state, EAX, EAX);
    js_rj(state, 29);
    mov_m32_imm32(state, (unsigned int*)(&state->fake_instr.addr), addr); // 10
    mov_m32_imm32(state, (unsigned int*)(&state->PC), (unsigned int)(&state->fake_instr)); // 10
@@ -361,7 +361,7 @@ void gencheck_interupt_reg(usf_state_t * state) // addr is in EAX
 {
    free_register(state, ECX);
    mov_reg32_m32(state, EBX, &state->cycle_count);
-   cmp_reg32_reg32(state, EBX, EBX);
+   test_reg32_reg32(state, EBX, EBX);
    js_rj(state, 24);
    mov_memoffs32_eax(state, (unsigned int*)(&state->fake_instr.addr)); // 5
    mov_m32_imm32(state, (unsigned int*)(&state->PC), (unsigned int)(&state->fake_instr)); // 10
