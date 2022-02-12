@@ -63,6 +63,7 @@
     </ClCompile>
     <ClCompile Include="..\..\rsp_hle\cicx105.c" />
     <ClCompile Include="..\..\rsp_hle\hle.c" />
+    <ClCompile Include="..\..\rsp_hle\hvqm.c" />
     <ClCompile Include="..\..\rsp_hle\jpeg.c" />
     <ClCompile Include="..\..\rsp_hle\memory.c">
       <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)/memory_hle.obj</ObjectFileName>
@@ -71,6 +72,7 @@
     <ClCompile Include="..\..\rsp_hle\mp3.c" />
     <ClCompile Include="..\..\rsp_hle\musyx.c" />
     <ClCompile Include="..\..\rsp_hle\plugin.c" />
+    <ClCompile Include="..\..\rsp_hle\re2.c" />
     <ClCompile Include="..\..\rsp_lle\rsp.c">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;ARCH_MIN_SSE2;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;ARCH_MIN_SSE2;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
