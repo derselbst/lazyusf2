@@ -208,6 +208,7 @@ void r4300_reset_soft(usf_state_t * state)
     /* ready to execute IPL3 */
 }
 
+#ifdef DYNAREC
 #if !defined(NO_ASM)
 static void dynarec_setup_code()
 {
@@ -218,7 +219,7 @@ static void dynarec_setup_code()
 	   mov state, esi
    }
 #else
-   asm volatile
+   __asm __volatile
 #ifdef __x86_64__
     (" mov %%r15, (%[state])       \n"
 #else
@@ -237,6 +238,7 @@ static void dynarec_setup_code()
    if (!state->actual || !state->actual->block || !state->actual->code)
       dyna_stop(state);
 }
+#endif
 #endif
 
 void r4300_begin(usf_state_t * state)

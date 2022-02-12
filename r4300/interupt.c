@@ -149,7 +149,7 @@ void add_interupt_event_count(usf_state_t * state, int type, unsigned int count)
 {
     struct node* event;
     struct node* e;
-
+   
     if (get_event(state, type)) {
         DebugMessage(state, M64MSG_WARNING, "two events of type 0x%x in interrupt queue", type);
     }
@@ -343,7 +343,7 @@ void check_interupt(usf_state_t * state)
 
     state->g_r4300.mi.regs[MI_INTR_REG] &= ~MI_INTR_AI;
     state->g_r4300.mi.regs[MI_INTR_REG] |= state->g_r4300.mi.AudioIntrReg & MI_INTR_AI;
-
+    
 #ifdef DEBUG_INFO
     if (state->g_r4300.mi.regs[MI_INTR_REG] && state->debug_log)
         fprintf(state->debug_log, "Interrupt %d - ", state->g_r4300.mi.regs[MI_INTR_REG]);
@@ -496,7 +496,9 @@ void osal_fastcall gen_interupt(usf_state_t * state)
     if (state->stop == 1)
     {
         state->g_gs_vi_counter = 0; // debug
+#ifdef DYNAREC
         dyna_stop(state);
+#endif
     }
 
     if (!state->interupt_unsafe_state)
