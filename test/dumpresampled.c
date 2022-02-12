@@ -148,7 +148,7 @@ int main(int argc, char ** argv)
         usf_set_fifo_full(state, enable_fifo_full);
         
         usf_set_hle_audio(state, 1);
-        usf_log_start(state);
+//         usf_log_start(state);
         
         f = fopen(argv[2], "wb");
         

@@ -167,7 +167,7 @@ int main(int argc, char ** argv)
           if (samples_last == 6589000)
           {
             fprintf(stderr, "Log started.\n");
-            usf_log_start(state);
+//             usf_log_start(state);
           }
           #endif
           usf_render(state, 0, 1000, &sample_rate);
