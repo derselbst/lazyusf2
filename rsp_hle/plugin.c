@@ -75,6 +75,7 @@ void HleErrorMessage(void* user_defined, const char *message, ...)
 
 void HleWarnMessage(void* user_defined, const char *message, ...)
 {
+#if 0
     usf_state_t* state;
     va_list ap;
     size_t len;
@@ -91,6 +92,7 @@ void HleWarnMessage(void* user_defined, const char *message, ...)
 
     state->last_error = state->error_message;
     state->stop = 1;
+#endif
 }
 
 void HleCheckInterrupts(void* user_defined)
