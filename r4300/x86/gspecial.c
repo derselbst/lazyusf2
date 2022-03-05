@@ -737,7 +737,7 @@ void gensubu(usf_state_t * state)
 void genand(usf_state_t * state)
 {
 #ifdef INTERPRET_AND
-   gencallinterp((unsigned int)state->current_instruction_table.AND, 0);
+   gencallinterp(state, (unsigned int)state->current_instruction_table.AND, 0);
 #else
    int rs1 = allocate_64_register1(state, (unsigned int *)state->dst->f.r.rs);
    int rs2 = allocate_64_register2(state, (unsigned int *)state->dst->f.r.rs);
